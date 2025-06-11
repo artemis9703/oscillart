@@ -29,5 +29,5 @@ function frequency(pitch) {
 function handle() {
     audioCtx.resume();
     gainNode.gain.value = 0;
-    frequency(input.value);
+    frequency(input.value); 
 }
