@@ -28,6 +28,7 @@ notes.set("A", 440);
 notes.set("B", 493.9);
 
 function frequency(pitch) {
+    freq = pitch / 10000;
     gainNode.gain.setValueAtTime(100, audioCtx.currentTime);
     oscillator.frequency.setValueAtTime(pitch, audioCtx.currentTime);
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime + 1);
@@ -36,7 +37,6 @@ function frequency(pitch) {
 function handle() {
     audioCtx.resume();
     gainNode.gain.value = 0;
-    frequency(input.value); 
     var pplsNotes = String(input.value);
     frequency(notes.get(pplsNotes))
     drawWave();
@@ -52,7 +52,6 @@ function drawWave() {
     interval = setInterval(line, 20);
 }
 function line() {
-    freq = pitch / 10000;
     y = height/2 + (amplitude * Math.sin(x * 2 * Math.PI * freq));
     ctx.lineTo(x, y);
     ctx.stroke();
