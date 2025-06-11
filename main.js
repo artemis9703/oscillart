@@ -35,10 +35,23 @@ function frequency(pitch) {
 }
 
 function handle() {
+    var pplsNotes = String(input.value);
+    var notelsit = [];
+    for (i = 0; i < pplsNotes.length; i++) {
+        notelsit.push(notes.get(pplsNotes.charAt(i)));
+    }
+    let j = 0;
+    repeat = setInterval;(() => {
+        if(j < notelist.length) {
+            frequency(parseInt(notelist[j]));
+            drawWave();
+        j++
+        } else {
+            clearInterval(repeat)
+        }
+    }, 1000)
     audioCtx.resume();
     gainNode.gain.value = 0;
-    var pplsNotes = String(input.value);
-    frequency(notes.get(pplsNotes))
     drawWave();
 }
 var counter = 0;
