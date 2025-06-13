@@ -32,9 +32,10 @@ notes.set("B", 493.9);
 
 function frequency(pitch) {
     freq = pitch / 10000;
-    gainNode.gain.setValueAtTime(100, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(vol_slider.value, audioCtx.currentTime);
+    setting = setInterval(() => {gainNode.gain.value = vol_slider.value}, 1);
     oscillator.frequency.setValueAtTime(pitch, audioCtx.currentTime);
-    gainNode.gain.setValueAtTime(0, audioCtx.currentTime + (timepernote/1000) - 0.1);
+    setTimeout(() => { clearInterval(setting); gainNode.gain.value = 0; }, ((timepernote)-10));
 }
 
 function handle() {
@@ -74,12 +75,16 @@ function drawWave() {
     reset = false;
 }
 function line() {
-    y = height/2 + amplitude * Math.sin(x * 2 * Math.PI * freq * (0.5 * length));
+    y = height/2 + vol_slider.value * Math.sin(x * 2 * Math.PI * freq * (0.5 * length));
     ctx.lineTo(x, y);
     ctx.stroke();
+    ctx.strokeStyle = color_picker.value;
     x = x + 1;
     counter++;
     if(counter > 50) {
         clearInterval(interval);
     }
+    ctx.stroke();
 }
+const color_picker = document.getElementById('color');
+const vol_slider = document.getElementById('vol-slider');
