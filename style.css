@@ -1,9 +1,18 @@
 body {
-    text-align: center;
+    background-color: rgba(5, 175, 250, 0.30);
 }
 #canvas {
     border: 5px solid black;
     height: 500px;
     width: 900px;
     margin-bottom: 2em;
+}
+#container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
 }

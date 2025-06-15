@@ -28,13 +28,31 @@ var width = ctx.canvas.width;
 var height = ctx.canvas.height;
 
 notes = new Map();
+//octave 3
+notes.set("c", 130.8);
+notes.set("d", 146.8);
+notes.set("e", 164.8);
+notes.set("f", 174.6);
+notes.set("g", 196);
+notes.set("a", 220);
+notes.set("b", 246.9);
+//octave 4
 notes.set("C", 261.6);
 notes.set("D", 293.7);
 notes.set("E", 329.6);
 notes.set("F", 349.2);
-notes.set("G", 392.0);
+notes.set("G", 392);
 notes.set("A", 440);
 notes.set("B", 493.9);
+//octave 5
+//still figuring out keycodes
+notes.set("", 523.3);
+notes.set("", 587.3);
+notes.set("", 659.3);
+notes.set("", 698.5);
+notes.set("", 784);
+notes.set("", 880);
+notes.set("", 987.8);
 
 function frequency(pitch) {
     freq = pitch / 10000;
@@ -84,7 +102,7 @@ function drawWave() {
 
 function line() {
     y = height/2 + ((vol_slider.value/100)*40 * Math.sin(x * 2 * Math.PI * freq * (0.5 * length)));
-    const gradient = ctx.createLinearGradient(20, 0, 220, 0);
+    const gradient = ctx.createLinearGradient(100, 0, 200, 0);
     gradient.addColorStop(0, color_picker1.value);
     gradient.addColorStop(0.5, color_picker2.value);
     gradient.addColorStop(1, color_picker3.value);
