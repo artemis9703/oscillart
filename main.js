@@ -59,7 +59,8 @@ function frequency(pitch) {
     gainNode.gain.setValueAtTime(100, audioCtx.currentTime);
     setting = setInterval(() => {gainNode.gain.value = vol_slider.value}, 1);
     oscillator.frequency.setValueAtTime(pitch, audioCtx.currentTime);
-    setTimeout(() => { clearInterval(setting); gainNode.gain.value = 0; }, ((timepernote)-10));
+    setTimeout(() => { clearInterval(setting);}, ((timepernote)-30));
+    setTimeout(() => {gainNode.gain.setValueAtTime(0, audioCtx.currentTime);}, ((timepernote)-10));
 }
 
 function handle() {
