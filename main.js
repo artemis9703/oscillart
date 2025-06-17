@@ -3,7 +3,7 @@ const color_picker1 = document.getElementById('color1');
 const color_picker2 = document.getElementById('color2');
 const color_picker3 = document.getElementById('color3');
 const vol_slider = document.getElementById('vol-slider');
-const rec_toggle = document.getElementById('record');
+const recording_toggle = document.getElementById('record');
 
 var interval = null;
 var reset = false;
@@ -28,6 +28,8 @@ var width = ctx.canvas.width;
 var height = ctx.canvas.height;
 
 notes = new Map();
+//blank
+notes.set(" ", 0);
 //octave 3
 notes.set("c", 130.8);
 notes.set("d", 146.8);
@@ -46,13 +48,13 @@ notes.set("A", 440);
 notes.set("B", 493.9);
 //octave 5
 //still figuring out keycodes
-notes.set("", 523.3);
-notes.set("", 587.3);
-notes.set("", 659.3);
-notes.set("", 698.5);
-notes.set("", 784);
-notes.set("", 880);
-notes.set("", 987.8);
+notes.set("j", 523.3);
+notes.set("k", 587.3);
+notes.set("l", 659.3);
+notes.set("m", 698.5);
+notes.set("n", 784);
+notes.set("h", 880);
+notes.set("i", 987.8);
 
 function frequency(pitch) {
     freq = pitch / 10000;

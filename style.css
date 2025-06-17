@@ -39,3 +39,18 @@ button {
 #input {
     border: 2px solid rgb(0, 140, 255);
 }
+.instruct {
+    color: rgb(0, 140, 255);
+    text-decoration-thickness: 1px;
+    background-color: white;
+    border: 2px solid rgb(0, 140, 255);
+}
+hr {
+    border: 2px solid rgb(0, 140, 255);
+}
+a {
+    color: black;
+}
+p {
+    font-weight: bold;
+}
